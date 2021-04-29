@@ -85,10 +85,13 @@ numseed=(voxA+voxB)*1000;% calculation of the number of seeds per voxel
 outputs=[];% data on ROI locations as well as output data for each ROI run
 % designed with the intent of ANOVAn
 % contents: ROIA transformation, ROIB transformation, volume of tracts,
-%      number of tracts, statistical values from stat file from all
-%      fibers, statistical values from stat file from fibers intersecting
-%      ROI, ratio of number of fibers activated by stimulation
-clc % clear the slate
+%      number of tracts, statistical values from 
+outputs=[outputs;...
+                [xyzXform(a,:),xyzXform(b,:),volume(shp),numel(la),...
+                statvals(:,2)',intersectstat(:,2)'...
+                ratiointersect]];
+
+clc
 
 fa=waitbar(0,"for ROIA");
 fb=waitbar(0,"for ROIB");
