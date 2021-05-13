@@ -1,3 +1,28 @@
+% code  :: DSI_Perturbations_Subgenual.m
+% descr :: Perform perturbations on JONES ROIs for subgenual aspect alone
+% auth  :: Andreas Seas
+% edits :: May 13, 2021
+
+% relevant links:
+%    - http://dsi-studio.labsolver.org/Manual/command-line-for-dsi-studio
+%      (DSI studio command line interface manual)
+%    - http://dsi-studio.labsolver.org/Manual/Fiber-Tracking
+%      (DSI studio manual tracking guide, helpful for visualizing)
+
+% file requirements within code folder
+%    - ROI_*_#vox.nii.gz 
+%        for all ROIs being used
+%    - data.nii.gz.src.gz.gqi.1.25.fib.gz 
+%        this is a modified version of the original dti that has tensor
+%        data calculated... performed manually using dsi defaults
+%    - mni1mm_rhem-csf_subj1DW.nii.gz
+%        used as a region of avoidance here, already extant within patient
+%        file. may need to regenerate to only include CSF and not exclude
+%        rhem, but left this way for now to minimize run times
+%    - elecmultisphereroi_rad10mm_subj1DW.nii.gz
+%        roi showing region of activation thru stimulation... can be any
+%        ROI outside of the ROIs used for gating
+
 % TO MAKE HISTOGRAMS
 close all;clear;clc
 %% get and prepare the data
